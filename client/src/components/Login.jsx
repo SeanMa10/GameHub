@@ -1,9 +1,15 @@
+// client/src/components/Login.jsx
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import React, { useState } from "react";
 import { useLogin } from "../hooks/useLogin";
 import { useNavigate } from "react-router-dom";
 
 export default function Login() {
   const navigate = useNavigate();
+
+
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { login, loading, error } = useLogin();
@@ -13,6 +19,7 @@ export default function Login() {
     try {
       await login(email, password);
       alert("Login successful!");
+      navigate('/Dashboard');
       // redirect or update UI here
     // eslint-disable-next-line no-unused-vars
     } catch (err) {
