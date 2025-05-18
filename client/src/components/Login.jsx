@@ -1,10 +1,22 @@
 // client/src/components/Login.jsx
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // כאן אפשר לשים לוגיקה של בדיקת אימייל/סיסמה
+    navigate('/Dashboard');
+  };
+
   return (
     <div className="flex items-center justify-center h-screen bg-gradient-to-br from-black via-zinc-900 to-gray-800">
-      <form className="bg-gradient-to-br from-zinc-800 to-zinc-900 text-white p-8 rounded-2xl shadow-2xl w-full max-w-sm space-y-6 border border-zinc-700 backdrop-blur-sm">
+      <form
+        onSubmit={handleSubmit}
+        className="bg-gradient-to-br from-zinc-800 to-zinc-900 text-white p-8 rounded-2xl shadow-2xl w-full max-w-sm space-y-6 border border-zinc-700 backdrop-blur-sm"
+      >
         <h2 className="text-3xl font-extrabold text-center text-cyan-400 drop-shadow-glow">
           Login to GameHub
         </h2>
