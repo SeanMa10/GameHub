@@ -1,8 +1,8 @@
-// client/src/components/Home.jsx
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectCoverflow } from "swiper/modules";
+import { LogIn } from "lucide-react";  // Add this icon import
 
 import "swiper/css";
 import "swiper/css/effect-coverflow";
@@ -25,9 +25,10 @@ export default function Home() {
           Welcome to GameHub
         </h1>
         <button
-          className="bg-sky-500 text-white px-4 py-2 rounded shadow hover:bg-sky-600 transition"
           onClick={() => navigate("/login")}
+          className="flex items-center gap-2 text-cyan-400 hover:text-cyan-200 transition font-semibold bg-zinc-800 border border-zinc-600 px-4 py-2 rounded-lg shadow hover:shadow-cyan-500/30"
         >
+          <LogIn size={20} />
           Login Page
         </button>
       </div>

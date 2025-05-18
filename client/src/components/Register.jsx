@@ -1,8 +1,10 @@
 // client/src/components/Register.jsx
 import React, { useState } from "react";
 import useRegister from "../hooks/useRegister";
+import { useNavigate } from "react-router-dom";
 
 export default function Register() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -24,6 +26,7 @@ export default function Register() {
     const result = await register(formData);
     if (result) {
       console.log("Registration successful:", result);
+      navigate("/login");
       // You can add redirect or reset form here
     }
   };
@@ -82,7 +85,7 @@ export default function Register() {
 
         <p className="text-center text-sm text-zinc-400">
           Already have an account?{" "}
-          <span className="text-cyan-400 cursor-pointer hover:underline">
+          <span className="text-cyan-400 cursor-pointer hover:underline" onClick={()=>navigate("/login")}>
             Sign In
           </span>
         </p>
